@@ -113,7 +113,7 @@ section{padding: 76px 0;}
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 115%;
+  top: 100%;
   left: 0;
 
   /* keep it compact */
@@ -225,6 +225,86 @@ section{padding: 76px 0;}
 
 
 /* ---------- About preview ---------- */
+/* ===== About preview upgrade ===== */
+.about-preview{
+  gap: 54px; /* a bit more breathing room */
+}
+
+.about-highlights{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(212,175,55,.14);
+  color: rgba(245,245,245,.88);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pill i{
+  color: var(--gold);
+}
+
+.about-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Portrait styling */
+.portrait-card{
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,.14);
+  box-shadow: var(--shadow);
+  background: rgba(17,18,20,.92);
+  max-width: 320px; /* appropriate size on desktop */
+}
+
+.portrait-card img{
+  width: 100%;
+  height: 360px;         /* consistent portrait size */
+  object-fit: cover;     /* fills nicely */
+  object-position: top;  /* keeps face visible */
+  display: block;
+  filter: contrast(1.02) saturate(1.02);
+}
+
+.portrait-card figcaption{
+  padding: 14px 16px;
+  border-top: 1px solid rgba(212,175,55,.10);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.portrait-card .name{
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
+.portrait-card .role{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 760px){
+  .portrait-card img{
+    height: 300px;
+  }
+}
+
 .about-preview{
   display:flex;
   gap: 36px;
@@ -293,6 +373,8 @@ section{padding: 76px 0;}
 .card:hover{
   transform: translateY(-4px);
   border-color: rgba(212,175,55,.30);
+
+
 }
 
 /* ---------- Portfolio gallery grid ---------- */
@@ -432,4 +514,239 @@ footer{
 
 .dropdown:hover .dropdown-menu {
   display: block !important;
+}
+
+/* =========================
+   PATCH: polish + services media + icons + WhatsApp float
+   Paste at END of file
+========================= */
+
+/* --- Small global polish --- */
+html { scroll-behavior: smooth; }
+
+.hero h1 { margin-bottom: 14px; }
+.hero p  { max-width: 60ch; margin: 0 auto 22px; }
+
+/* --- Navbar icon spacing (Font Awesome) --- */
+.nav-link i,
+.btn-primary i,
+.btn-secondary i {
+  margin-right: 8px;
+  font-size: 0.95em;
+  opacity: 0.92;
+}
+
+/* Active link (optional) */
+.nav-link.active {
+  color: var(--gold);
+}
+
+.nav-link.active::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: rgba(212,175,55,.35);
+}
+
+/* --- Card clickable behavior --- */
+.card-link{
+  display: block;
+  cursor: pointer;
+}
+
+/* =========================
+   Services: Add image area inside each card
+   Requires HTML structure:
+   <a class="card card-link service-card">
+     <div class="service-media" style="background-image:url('images/camera.jpg');"></div>
+     <div class="service-body">...</div>
+   </a>
+========================= */
+
+.service-card{
+  padding: 0;              /* image touches edges */
+  overflow: hidden;        /* rounds image corners */
+  text-align: left;
+}
+
+.service-media{
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-bottom: 1px solid rgba(212,175,55,.12);
+  transform: scale(1);      /* enables smooth hover */
+  transition: transform .25s ease;
+}
+
+/* Overlay so text style/theme stays consistent */
+.service-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.12),
+    rgba(0,0,0,.80)
+  );
+}
+
+/* subtle gold glow for luxury feel */
+.service-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(380px 200px at 18% 20%, rgba(212,175,55,.20), transparent 60%);
+  opacity: .95;
+}
+
+.service-body{
+  padding: 22px 24px;
+}
+
+.service-body h3{
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.service-body p{
+  color: var(--muted);
+  margin: 0;
+}
+
+.service-card:hover .service-media{
+  transform: scale(1.03);
+}
+
+.service-card:focus{
+  outline: 2px solid rgba(212,175,55,.35);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+/* --- Improve section spacing slightly --- */
+.about-preview { padding-top: 84px; }
+.services      { padding: 84px 0; }
+.portfolio     { padding: 84px 0; }
+
+/* =========================
+   Floating WhatsApp button (premium)
+   Add HTML on every page near end of body:
+   <a class="whatsapp-float" href="https://wa.me/2547XXXXXXXX" target="_blank" rel="noopener">
+     <i class="fa-brands fa-whatsapp"></i> WhatsApp
+   </a>
+========================= */
+
+.whatsapp-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, var(--gold), var(--gold2));
+  color: #101012;
+  font-weight: 900;
+  border: 1px solid rgba(0,0,0,.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.whatsapp-float:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.whatsapp-float i{
+  font-size: 18px;
+}
+
+/* On small screens, make it an icon-only bubble */
+@media (max-width: 520px){
+  .whatsapp-float{
+    padding: 12px;
+    width: 54px;
+    height: 54px;
+    justify-content: center;
+  }
+  .whatsapp-float span{ display:none; }
+}
+
+/* =========================
+   Dropdown stability: keep open easier
+   (prevents menu closing before click)
+========================= */
+
+.dropdown > a{
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.dropdown::after{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 12px;
+}
+
+/* ===============================
+   SERVICE SECTION SCALE UPGRADE
+   Paste at END (overrides earlier)
+================================ */
+
+.services{
+  padding: 100px 0; /* bigger section spacing */
+}
+
+.service-grid{
+  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+  gap: 32px;
+  justify-items: stretch;  /* allows cards to expand */
+}
+
+/* Remove the small card cap */
+.card{
+  max-width: 100%;
+}
+
+/* Bigger image area */
+.service-media{
+  height: 240px;
+}
+
+/* Slightly bigger text */
+.service-body h3{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-body p{
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Stronger hover (luxury feel) */
+.service-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,.35);
+
+  
+}
+
+.service-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.25); /* light tint only */
 }

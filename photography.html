@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Family Gatherings</title>
+    <title>Photography</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
@@ -10,37 +10,80 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+      <!-- Font Awesome Icons -->
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+integrity="sha512-..." 
+crossorigin="anonymous" 
+referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="navbar">
-    <div class="container">
-        <div class="logo">KG Creative</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+     <!-- Navbar -->
+<header class="navbar">
+  <div class="container">
+    <div class="logo">KG Creative</div>
 
-                <!-- REPLACE THE SERVICES LINK WITH THIS -->
-                <li class="dropdown">
-                    <a href="services.html">Services ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="family-gatherings.html">Family Gatherings</a></li>
-                        <li><a href="corporate.html">Corporate & Events</a></li>
-                        <li><a href="self-portrait.html">Self portrait Sessions</a></li>
-                        <li><a href="school-potrait.html">School Portrait Sessions</a></li>
-                        <li><a href="design.html">Graphic Design</a></li>
-                    </ul>
-                </li>
+    <nav>
+      <ul>
+        <li>
+          <a class="nav-link active" href="index.html">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+        </li>
 
-                <li><a href="gallery.html">Portfolio</a></li>
-                <li><a href="contact.html" class="btn-primary">Book Now</a></li>
-            </ul>
-        </nav>
-    </div>
+        <li>
+          <a class="nav-link" href="about.html">
+            <i class="fa-solid fa-user"></i> About
+          </a>
+        </li>
+
+        <li class="dropdown">
+          <a class="nav-link" href="services.html">
+            <i class="fa-solid fa-briefcase"></i> Services ▾
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="photography.html">
+                <i class="fa-solid fa-camera"></i> Photography
+              </a>
+            </li>
+            <li>
+              <a href="design.html">
+                <i class="fa-solid fa-pen-nib"></i> Graphic Design
+              </a>
+            </li>
+            <li>
+              <a href="social.html">
+                <i class="fa-solid fa-hashtag"></i> Social Media Management
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="nav-link" href="portfolio.html">
+            <i class="fa-solid fa-images"></i> Portfolio
+          </a>
+        </li>
+
+        <li>
+          <a class="nav-link" href="contact.html">
+            <i class="fa-solid fa-envelope"></i> Contact Us
+          </a>
+        </li>
+
+        <li>
+          <a href="book.html" class="btn-primary">
+            <i class="fa-solid fa-calendar-check"></i> Book Now
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
     <section class="page-hero">
     <div class="container">
-        <h1>Family Gatherings</h1>
+        <h1>Photography</h1>
         <p class="page-subtitle">
             Capturing genuine family moments that last a lifetime.
         </p>
@@ -49,7 +92,7 @@
 
 <section class="gallery-section container">
     <div class="gallery-grid">
-        <img src="images/family1.jpg" alt="">
+        <img src="images/photograph1.jpg" alt="">
         <img src="images/family2.jpg" alt="">
         <img src="images/family3.jpg" alt="">
         <img src="images/family4.jpg" alt="">
@@ -59,7 +102,7 @@
 </section>
 
 <section class="service-cta container">
-    <a href="contact.html" class="btn-primary">Book This Service</a>
+    <a href="book.html" class="btn-primary">Book This Service</a>
 </section>
 
 <footer>
