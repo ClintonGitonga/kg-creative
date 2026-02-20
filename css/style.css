@@ -1,5 +1,6 @@
 /* =========================
    KG Creative — Black & Gold Theme
+   FINAL (dropdown fixed)
    Copy-paste entire file
 ========================= */
 
@@ -16,6 +17,14 @@
   --border2: rgba(255,255,255,.10);
   --shadow: 0 14px 40px rgba(0,0,0,.45);
   --radius: 16px;
+
+  /* animation defaults */
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --dur: 650ms;
+
+  /* fonts (match your HTML Google Fonts) */
+  --font-body: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-head: "Fraunces", serif;
 }
 
 /* ---------- Reset ---------- */
@@ -25,18 +34,23 @@ a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 
 /* ---------- Base ---------- */
+html{scroll-behavior:smooth;}
+
 body{
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   background:
     radial-gradient(1000px 520px at 20% 10%, rgba(212,175,55,.12), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(255,255,255,.06), transparent 60%),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,h2,h3{
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-head);
   letter-spacing: -0.02em;
 }
 
@@ -64,6 +78,16 @@ section{padding: 76px 0;}
   opacity: .9;
 }
 
+/* --- Smooth hover transitions globally --- */
+a, button, .card, .service-media, img{
+  transition:
+    transform 220ms var(--ease),
+    filter 220ms var(--ease),
+    background 220ms var(--ease),
+    border-color 220ms var(--ease),
+    opacity 220ms var(--ease);
+}
+
 /* ---------- Navbar ---------- */
 .navbar{
   position: sticky;
@@ -88,12 +112,6 @@ section{padding: 76px 0;}
   text-transform: uppercase;
 }
 
-.navbar nav ul{
-  display:flex;
-  gap: 22px;
-  align-items:center;
-}
-
 .navbar nav a{
   font-weight: 600;
   color: rgba(245,245,245,.86);
@@ -101,64 +119,104 @@ section{padding: 76px 0;}
 
 .navbar nav a:hover{ color: var(--gold); }
 
-/* ---------- Dropdown ---------- */
-/* ===== Clean Minimal Dropdown ===== */
-
-/* Dropdown container */
-.dropdown {
-  position: relative;
+/* --- Navbar icon spacing (Font Awesome) --- */
+.nav-link i,
+.btn-primary i,
+.btn-secondary i{
+  margin-right: 8px;
+  font-size: 0.95em;
+  opacity: 0.92;
 }
 
+/* Active link (optional) */
+.nav-link.active{
+  color: var(--gold);
+}
+
+.nav-link.active::after{
+  content:"";
+  display:inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: rgba(212,175,55,.35);
+}
+
+/* --- Navbar: mobile-safe toggle --- */
+.nav-toggle{
+  display: none;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(212,175,55,.18);
+  color: rgba(245,245,245,.92);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ✅ IMPORTANT FIX:
+   only the TOP-LEVEL navbar list is flex
+   so the dropdown UL doesn't become horizontal */
+.navbar nav > ul{
+  display:flex;
+  gap: 22px;
+  align-items:center;
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown{ position: relative; }
+
 /* Dropdown menu box */
-.dropdown-menu {
+.dropdown-menu{
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
 
-  /* keep it compact */
   width: 240px;
   padding: 8px 0;
 
-  /* clean look */
   background: rgba(12, 12, 13, 0.96);
   border: 1px solid rgba(212,175,55,.14);
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(0,0,0,.45);
 
-  /* IMPORTANT: make it vertical, not horizontal */
-  display: none;
-}
-
-/* show on hover */
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* IMPORTANT: kill any flex/grid used previously */
-.dropdown-menu {
+  /* force vertical stack even if anything tries to flex it */
   list-style: none;
 }
-.dropdown-menu li {
-  display: block;              /* stack items */
-}
 
-/* link styles */
-.dropdown-menu li a {
+.dropdown:hover .dropdown-menu{ display: block; }
+
+.dropdown-menu li{ display: block; }
+
+.dropdown-menu li a{
   display: block;
   padding: 12px 16px;
   font-size: 14px;
   line-height: 1.2;
   color: rgba(245,245,245,.86);
-  white-space: normal;         /* allows wrapping nicely */
+  white-space: normal;
 }
 
-/* hover */
-.dropdown-menu li a:hover {
+.dropdown-menu li a:hover{
   background: rgba(212,175,55,.10);
   color: var(--gold);
 }
 
+/* keep open easier (prevents closing before click) */
+.dropdown > a{
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.dropdown::after{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 12px;
+}
 
 /* ---------- Buttons ---------- */
 .btn-primary{
@@ -193,25 +251,8 @@ section{padding: 76px 0;}
   transform: translateY(-1px);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.65),
-      rgba(0,0,0,0.75)
-  );
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-}
-
-/* ---------- Hero (works even without hero image) ---------- */
-.hero {
+/* ---------- Hero ---------- */
+.hero{
   position: relative;
   min-height: 80vh;
   display: flex;
@@ -219,27 +260,69 @@ section{padding: 76px 0;}
   justify-content: center;
   text-align: center;
   padding: 0 20px;
-
-  background: url('../images/cameralens.JPG') center/cover no-repeat;
+  background: url("../images/cameralens.JPG") center/cover no-repeat;
 }
 
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.75)
+  );
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero h1{
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.hero p{
+  font-size: clamp(15px, 1.35vw, 18px);
+  max-width: 60ch;
+  margin: 0 auto 22px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap: wrap;
+}
 
 /* ---------- About preview ---------- */
-/* ===== About preview upgrade ===== */
 .about-preview{
-  gap: 54px; /* a bit more breathing room */
+  display:flex;
+  gap: 54px;
+  align-items:center;
+  flex-wrap:wrap;
+  padding-top: 84px;
 }
 
+.about-text{ flex: 1 1 420px; }
+.about-text p{ color: var(--muted); max-width: 60ch; }
+
+.about-image{ flex: 1 1 360px; }
+
 .about-highlights{
-  display: flex;
-  flex-wrap: wrap;
+  display:flex;
+  flex-wrap:wrap;
   gap: 10px;
   margin: 18px 0 22px;
 }
 
 .pill{
-  display: inline-flex;
-  align-items: center;
+  display:inline-flex;
+  align-items:center;
   gap: 8px;
   padding: 10px 12px;
   border-radius: 999px;
@@ -250,17 +333,14 @@ section{padding: 76px 0;}
   font-size: 13px;
 }
 
-.pill i{
-  color: var(--gold);
-}
+.pill i{ color: var(--gold); }
 
 .about-actions{
-  display: flex;
+  display:flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-/* Portrait styling */
 .portrait-card{
   margin: 0;
   border-radius: var(--radius);
@@ -268,22 +348,21 @@ section{padding: 76px 0;}
   border: 1px solid rgba(212,175,55,.14);
   box-shadow: var(--shadow);
   background: rgba(17,18,20,.92);
-  max-width: 320px; /* appropriate size on desktop */
+  max-width: 320px;
 }
 
 .portrait-card img{
   width: 100%;
-  height: 360px;         /* consistent portrait size */
-  object-fit: cover;     /* fills nicely */
-  object-position: top;  /* keeps face visible */
-  display: block;
+  height: 360px;
+  object-fit: cover;
+  object-position: top;
   filter: contrast(1.02) saturate(1.02);
 }
 
 .portrait-card figcaption{
   padding: 14px 16px;
   border-top: 1px solid rgba(212,175,55,.10);
-  display: flex;
+  display:flex;
   flex-direction: column;
   gap: 2px;
 }
@@ -298,34 +377,13 @@ section{padding: 76px 0;}
   font-size: 13px;
 }
 
-/* Mobile tweaks */
-@media (max-width: 760px){
-  .portrait-card img{
-    height: 300px;
-  }
-}
-
-.about-preview{
-  display:flex;
-  gap: 36px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-.about-text{ flex: 1 1 420px; }
-.about-text p{ color: var(--muted); max-width: 60ch; }
-
-.about-image{ flex: 1 1 360px; }
-
-/* if you still use <img> here and it's missing, it'll just not show.
-   Recommended: use the placeholder div below until images arrive. */
 .about-image img{
   border-radius: var(--radius);
   border: 1px solid rgba(212,175,55,.12);
   box-shadow: var(--shadow);
 }
 
-/* ---------- Placeholder media (use instead of broken imgs) ---------- */
+/* Placeholder media */
 .media-placeholder{
   height: 320px;
   border-radius: var(--radius);
@@ -341,23 +399,24 @@ section{padding: 76px 0;}
 
 .media-placeholder.small{ height: 220px; }
 
-/* ---------- Services section ---------- */
+/* ---------- Services ---------- */
 .services{
   background: rgba(255,255,255,.03);
   border-top: 1px solid rgba(212,175,55,.10);
   border-bottom: 1px solid rgba(212,175,55,.10);
+  padding: 100px 0;
 }
 
 .service-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
-  justify-items:center;
+  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+  gap: 32px;
+  justify-items: stretch;
 }
 
 .card{
   width:100%;
-  max-width: 340px;
+  max-width: 100%;
   background: rgba(17,18,20,.92);
   border: 1px solid rgba(212,175,55,.14);
   border-radius: var(--radius);
@@ -371,14 +430,72 @@ section{padding: 76px 0;}
 .card p{ color: var(--muted); }
 
 .card:hover{
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: rgba(212,175,55,.30);
-
-
 }
 
-/* ---------- Portfolio gallery grid ---------- */
-.portfolio{ padding-top: 70px; }
+.card-link{ display:block; cursor:pointer; }
+
+.service-card{
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.service-media{
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-bottom: 1px solid rgba(212,175,55,.12);
+  transform: scale(1);
+  transition: transform .25s ease;
+}
+
+.service-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.25);
+}
+
+.service-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(380px 200px at 18% 20%, rgba(212,175,55,.20), transparent 60%);
+  opacity: .95;
+}
+
+.service-body{ padding: 22px 24px; }
+
+.service-body h3{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-body p{
+  color: var(--muted);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.service-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,.35);
+}
+
+.service-card:hover .service-media{ transform: scale(1.04); }
+
+.service-card:focus{
+  outline: 2px solid rgba(212,175,55,.35);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+/* ---------- Portfolio ---------- */
+.portfolio{ padding: 84px 0; }
 
 .gallery-grid{
   display:grid;
@@ -421,17 +538,7 @@ section{padding: 76px 0;}
   margin-bottom: 18px;
 }
 
-/* ---------- Footer ---------- */
-footer{
-  background: rgba(10,10,11,.92);
-  border-top: 1px solid rgba(212,175,55,.10);
-  text-align:center;
-  padding: 20px 12px;
-  color: rgba(245,245,245,.70);
-  font-size: 14px;
-}
-
-/* ---------- Generic Page Hero (for about/services pages) ---------- */
+/* ---------- Generic Page Hero ---------- */
 .page-hero{
   padding: 64px 0;
   text-align:center;
@@ -451,10 +558,7 @@ footer{
 }
 
 /* ---------- Contact page form ---------- */
-.contact-page{
-  padding-top: 56px;
-}
-
+.contact-page{ padding-top: 56px; }
 .contact-page p{ color: var(--muted); }
 
 .contact-page form{
@@ -495,258 +599,442 @@ footer{
   cursor: pointer;
 }
 
+/* ---------- Reveal animations ---------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+/* ---------- Featured Slider + Lightbox ---------- */
+.featured-one{
+  position: relative;
+  margin-top: 18px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,.14);
+  box-shadow: var(--shadow);
+  background: rgba(17,18,20,.92);
+}
+
+.featured-viewport{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.featured-slide{
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  margin: 0;
+  position: relative;
+}
+
+.featured-slide img{
+  width: 100%;
+  height: min(70vh, 720px);
+  object-fit: cover;
+  display:block;
+  background: #0b0b0c;
+}
+
+.featured-nav{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(12,12,13,.65);
+  border: 1px solid rgba(212,175,55,.22);
+  color: rgba(245,245,245,.92);
+  display:grid;
+  place-items:center;
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+}
+
+.featured-nav:hover{
+  border-color: rgba(212,175,55,.38);
+  transform: translateY(-50%) scale(1.03);
+}
+
+.featured-nav.prev{ left: 14px; }
+.featured-nav.next{ right: 14px; }
+
+.featured-meta{ margin-top: 14px; }
+
+.featured-dots{
+  display:flex;
+  justify-content:center;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+
+.featured-dots button{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(245,245,245,.25);
+}
+
+.featured-dots button.active{
+  background: rgba(212,175,55,.65);
+}
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  background: rgba(0,0,0,.86);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox.open{
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-figure{
+  margin: 0;
+  width: min(1200px, 92vw);
+  height: min(86vh, 820px);
+  display:grid;
+  place-items:center;
+}
+
+.lightbox-figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display:block;
+}
+
+.lightbox-close{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,.22);
+  background: rgba(12,12,13,.65);
+  color: rgba(245,245,245,.92);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+
+.lightbox-nav{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,.22);
+  background: rgba(12,12,13,.65);
+  color: rgba(245,245,245,.92);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+
+.lightbox-nav.prev{ left: 16px; }
+.lightbox-nav.next{ right: 16px; }
+
+.lightbox-close:hover{ transform: scale(1.03); border-color: rgba(212,175,55,.40); }
+
+.lightbox-nav:hover{
+  border-color: rgba(212,175,55,.40);
+  transform: translateY(-50%) scale(1.03);
+}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  position: relative;
+  margin-top: 80px;
+  background: linear-gradient(180deg, rgba(17,18,20,.92), rgba(0,0,0,.95));
+  border-top: 1px solid rgba(212,175,55,.14);
+  overflow: hidden;
+}
+
+.site-footer::before{
+  content:"";
+  position:absolute;
+  inset: -200px -200px auto -200px;
+  height: 360px;
+  background: radial-gradient(closest-side, rgba(212,175,55,.12), transparent 70%);
+  pointer-events:none;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 34px;
+  padding: 56px 0 36px;
+  position: relative;
+}
+
+.footer-brand{
+  font-family: var(--font-head);
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.footer-muted{
+  color: rgba(245,245,245,.72);
+  max-width: 48ch;
+  margin-bottom: 16px;
+}
+
+.footer-title{
+  font-weight: 800;
+  color: rgba(245,245,245,.92);
+  margin-bottom: 12px;
+}
+
+.footer-links{ display:grid; gap: 10px; }
+
+.footer-links a{
+  color: rgba(245,245,245,.74);
+  padding-left: 0;
+}
+
+.footer-links a:hover{
+  color: var(--gold);
+  transform: translateX(2px);
+}
+
+.footer-social{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-link{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(212,175,55,.14);
+  color: rgba(245,245,245,.90);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35);
+}
+
+.social-link:hover{
+  color: #101012;
+  background: linear-gradient(180deg, var(--gold), var(--gold2));
+  border-color: rgba(0,0,0,.25);
+  transform: translateY(-2px);
+}
+
+.footer-contact{
+  display:grid;
+  gap: 12px;
+  color: rgba(245,245,245,.74);
+}
+
+.footer-contact li{
+  display:grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.footer-contact i{
+  color: rgba(212,175,55,.85);
+  margin-top: 2px;
+}
+
+.footer-contact a{ color: rgba(245,245,245,.80); }
+.footer-contact a:hover{ color: var(--gold); }
+
+.footer-cta{
+  margin-top: 16px;
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(212,175,55,.18);
+  color: rgba(245,245,245,.92);
+  font-weight: 800;
+}
+
+.footer-cta:hover{
+  background: rgba(212,175,55,.10);
+  border-color: rgba(212,175,55,.30);
+  transform: translateY(-1px);
+}
+
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 14px 0;
+}
+
+.footer-bottom-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  color: rgba(245,245,245,.62);
+  font-size: 14px;
+}
+
+.to-top{
+  color: rgba(245,245,245,.72);
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+}
+
+.to-top:hover{
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* ---------- Floating Social Stack ---------- */
+.social-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  display: grid;
+  gap: 10px;
+}
+
+.social-btn{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  background: rgba(12,12,13,.78);
+  border: 1px solid rgba(212,175,55,.18);
+  color: rgba(245,245,245,.92);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+}
+
+.social-btn i{ font-size: 22px; }
+
+.social-btn:hover{
+  transform: translateY(-2px);
+  border-color: rgba(212,175,55,.35);
+  filter: brightness(1.02);
+}
+
+.social-btn.gmail{ border: 1px solid rgba(212,175,55,.22); }
+.social-btn.gmail:hover{ border-color: rgba(212,175,55,.40); }
+
 /* ---------- Responsive ---------- */
+@media (max-width: 980px){
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 900px){
-  .navbar nav ul{ gap: 16px; }
+  .nav-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .navbar .container{
+    padding: 14px 0;
+    gap: 12px;
+  }
+
+  /* collapse nav into dropdown panel */
+  #site-nav{
+    position: absolute;
+    top: 64px;
+    right: 4%;
+    width: min(340px, 92vw);
+    background: rgba(12,12,13,.96);
+    border: 1px solid rgba(212,175,55,.16);
+    border-radius: 14px;
+    box-shadow: 0 18px 60px rgba(0,0,0,.55);
+    padding: 10px;
+    display: none;
+  }
+
+  #site-nav.open{ display:block; }
+
+  .navbar nav > ul{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .navbar nav a{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding: 12px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+  }
+
+  .navbar nav a:hover{ background: rgba(212,175,55,.08); }
+
+  /* dropdown inside mobile menu */
+  .dropdown-menu{
+    position: static;
+    width: 100%;
+    margin-top: 6px;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-menu{ display: block; }
 }
 
 @media (max-width: 760px){
   section{ padding: 54px 0; }
   .about-preview{ flex-direction: column; }
   .contact-page form{ grid-template-columns: 1fr; }
-  .dropdown-menu{ left: auto; right: 0; }
+  .portrait-card img{ height: 300px; }
+  .featured-slide img{ height: 62vh; }
+  .featured-nav{ display:none; }
 }
 
-/* FORCE dropdown closed unless hovering */
-.dropdown-menu {
-  display: none !important;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block !important;
-}
-
-/* =========================
-   PATCH: polish + services media + icons + WhatsApp float
-   Paste at END of file
-========================= */
-
-/* --- Small global polish --- */
-html { scroll-behavior: smooth; }
-
-.hero h1 { margin-bottom: 14px; }
-.hero p  { max-width: 60ch; margin: 0 auto 22px; }
-
-/* --- Navbar icon spacing (Font Awesome) --- */
-.nav-link i,
-.btn-primary i,
-.btn-secondary i {
-  margin-right: 8px;
-  font-size: 0.95em;
-  opacity: 0.92;
-}
-
-/* Active link (optional) */
-.nav-link.active {
-  color: var(--gold);
-}
-
-.nav-link.active::after {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-left: 8px;
-  border-radius: 999px;
-  background: rgba(212,175,55,.35);
-}
-
-/* --- Card clickable behavior --- */
-.card-link{
-  display: block;
-  cursor: pointer;
-}
-
-/* =========================
-   Services: Add image area inside each card
-   Requires HTML structure:
-   <a class="card card-link service-card">
-     <div class="service-media" style="background-image:url('images/camera.jpg');"></div>
-     <div class="service-body">...</div>
-   </a>
-========================= */
-
-.service-card{
-  padding: 0;              /* image touches edges */
-  overflow: hidden;        /* rounds image corners */
-  text-align: left;
-}
-
-.service-media{
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  border-bottom: 1px solid rgba(212,175,55,.12);
-  transform: scale(1);      /* enables smooth hover */
-  transition: transform .25s ease;
-}
-
-/* Overlay so text style/theme stays consistent */
-.service-media::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.12),
-    rgba(0,0,0,.80)
-  );
-}
-
-/* subtle gold glow for luxury feel */
-.service-media::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(380px 200px at 18% 20%, rgba(212,175,55,.20), transparent 60%);
-  opacity: .95;
-}
-
-.service-body{
-  padding: 22px 24px;
-}
-
-.service-body h3{
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-.service-body p{
-  color: var(--muted);
-  margin: 0;
-}
-
-.service-card:hover .service-media{
-  transform: scale(1.03);
-}
-
-.service-card:focus{
-  outline: 2px solid rgba(212,175,55,.35);
-  outline-offset: 3px;
-  border-radius: var(--radius);
-}
-
-/* --- Improve section spacing slightly --- */
-.about-preview { padding-top: 84px; }
-.services      { padding: 84px 0; }
-.portfolio     { padding: 84px 0; }
-
-/* =========================
-   Floating WhatsApp button (premium)
-   Add HTML on every page near end of body:
-   <a class="whatsapp-float" href="https://wa.me/2547XXXXXXXX" target="_blank" rel="noopener">
-     <i class="fa-brands fa-whatsapp"></i> WhatsApp
-   </a>
-========================= */
-
-.whatsapp-float{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 12px 16px;
-  border-radius: 999px;
-
-  background: linear-gradient(180deg, var(--gold), var(--gold2));
-  color: #101012;
-  font-weight: 900;
-  border: 1px solid rgba(0,0,0,.35);
-  box-shadow: 0 18px 40px rgba(0,0,0,.45);
-  transition: transform .15s ease, filter .15s ease;
-}
-
-.whatsapp-float:hover{
-  transform: translateY(-2px);
-  filter: brightness(1.03);
-}
-
-.whatsapp-float i{
-  font-size: 18px;
-}
-
-/* On small screens, make it an icon-only bubble */
-@media (max-width: 520px){
-  .whatsapp-float{
-    padding: 12px;
-    width: 54px;
-    height: 54px;
-    justify-content: center;
+@media (max-width: 640px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+    padding: 44px 0 28px;
   }
-  .whatsapp-float span{ display:none; }
+
+  .footer-bottom-inner{
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
-/* =========================
-   Dropdown stability: keep open easier
-   (prevents menu closing before click)
-========================= */
-
-.dropdown > a{
-  display: inline-block;
-  padding: 10px 0;
+@media (max-width: 520px){
+  .social-float{ right: 14px; bottom: 14px; }
+  .social-btn{ width: 52px; height: 52px; }
+  .social-btn i{ font-size: 20px; }
 }
 
-.dropdown::after{
-  content:"";
-  position:absolute;
-  left: 0;
-  top: 100%;
-  width: 100%;
-  height: 12px;
-}
-
-/* ===============================
-   SERVICE SECTION SCALE UPGRADE
-   Paste at END (overrides earlier)
-================================ */
-
-.services{
-  padding: 100px 0; /* bigger section spacing */
-}
-
-.service-grid{
-  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
-  gap: 32px;
-  justify-items: stretch;  /* allows cards to expand */
-}
-
-/* Remove the small card cap */
-.card{
-  max-width: 100%;
-}
-
-/* Bigger image area */
-.service-media{
-  height: 240px;
-}
-
-/* Slightly bigger text */
-.service-body h3{
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.service-body p{
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* Stronger hover (luxury feel) */
-.service-card:hover{
-  transform: translateY(-6px);
-  border-color: rgba(212,175,55,.35);
-
-  
-}
-
-.service-media::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: rgba(0,0,0,.25); /* light tint only */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .reveal{ opacity: 1; transform: none; }
+  a, button, .card, .service-media, img{ transition: none !important; }
 }

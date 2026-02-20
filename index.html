@@ -1,253 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>KG Creative | Photography & Graphic Design in Nairobi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>KG Creative | Photography & Graphic Design in Nairobi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <meta name="description" content="KG Creative is a Nairobi-based studio offering professional photography and graphic design for events, portraits, schools, and brands. Book a session and view our portfolio." />
+    <!-- Search Engine Optimization (SEO) -->
+    <meta
+      name="description"
+      content="KG Creative is a Nairobi-based studio offering professional photography and graphic design for events, portraits, schools, and brands. Book a session and view our portfolio."
+    />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-integrity="sha512-..." 
-crossorigin="anonymous" 
-referrerpolicy="no-referrer" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
 
-</head>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<body>
-<!-- Navbar -->
-<header class="navbar">
-  <div class="container">
-    <div class="logo">KG Creative</div>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-     <i class="fa-solid fa-bars"></i>
-    </button>
-    <nav>
-      <nav id="site-nav"></nav>
-      <ul>
-        <li>
-          <a class="nav-link active" href="index.html">
-            <i class="fa-solid fa-house"></i> Home
-          </a>
-        </li>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="container">
+        <div class="logo">KG Creative</div>
 
-        <li>
-          <a class="nav-link" href="about.html">
-            <i class="fa-solid fa-user"></i> About
-          </a>
-        </li>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <li class="dropdown">
-          <a class="nav-link" href="services.html">
-            <i class="fa-solid fa-briefcase"></i> Services ▾
-          </a>
-          <ul class="dropdown-menu">
+        <nav>
+          <!-- Kept (even though it's redundant/empty) to avoid changing structure -->
+          <nav id="site-nav"></nav>
+
+          <ul>
             <li>
-              <a href="photography.html">
-                <i class="fa-solid fa-camera"></i> Photography
+              <a class="nav-link active" href="index.html">
+                <i class="fa-solid fa-house"></i> Home
               </a>
             </li>
+
             <li>
-              <a href="design.html">
-                <i class="fa-solid fa-pen-nib"></i> Graphic Design
+              <a class="nav-link" href="about.html">
+                <i class="fa-solid fa-user"></i> About
               </a>
             </li>
+
+            <li class="dropdown">
+              <a class="nav-link" href="services.html">
+                <i class="fa-solid fa-briefcase"></i> Services ▾
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="photography.html">
+                    <i class="fa-solid fa-camera"></i> Photography
+                  </a>
+                </li>
+                <li>
+                  <a href="design.html">
+                    <i class="fa-solid fa-pen-nib"></i> Graphic Design
+                  </a>
+                </li>
+                <li>
+                  <a href="social.html">
+                    <i class="fa-solid fa-hashtag"></i> Social Media Management
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <li>
-              <a href="social.html">
-                <i class="fa-solid fa-hashtag"></i> Social Media Management
+              <a class="nav-link" href="portfolio.html">
+                <i class="fa-solid fa-images"></i> Portfolio
+              </a>
+            </li>
+
+            <li>
+              <a class="nav-link" href="contact.html">
+                <i class="fa-solid fa-envelope"></i> Contact Us
+              </a>
+            </li>
+
+            <li>
+              <a href="book.html" class="btn-primary">
+                <i class="fa-solid fa-calendar-check"></i> Book Now
               </a>
             </li>
           </ul>
-        </li>
+        </nav>
+      </div>
+    </header>
 
-        <li>
-          <a class="nav-link" href="portfolio.html">
-            <i class="fa-solid fa-images"></i> Portfolio
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Capturing The World, One Frame At a Time.</h1>
+        <p>
+          Professional photography and creative design services based in Nairobi,
+          Kenya.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="portfolio.html" class="btn-primary">View Portfolio</a>
+          <a href="book.html" class="btn-secondary">Book a Session</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About KG Creative preview -->
+    <section class="about-preview container">
+      <div class="about-text">
+        <h2>About KG Creative</h2>
+        <p>
+          KG Creative is a Nairobi-based studio offering professional
+          photography, graphic design solutions and social media support for
+          individuals, schools and brands. We focus on clean visuals, authentic
+          moments and work that looks premium
+        </p>
+
+        <div class="about-highlights">
+          <div class="pill">
+            <i class="fa-solid fa-bolt"></i> Fast turnaround
+          </div>
+          <div class="pill">
+            <i class="fa-solid fa-star"></i> Clean & premium edits
+          </div>
+          <div class="pill">
+            <i class="fa-solid fa-location-dot"></i> Nairobi-based
+          </div>
+        </div>
+
+        <div class="about-actions">
+          <a href="about.html" class="btn-primary">Learn More</a>
+          <a href="contact.html" class="btn-secondary">Contact</a>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <figure class="portrait-card">
+          <img src="images/eric1.jpg" alt="Founder portrait - KG Creative" />
+          <figcaption>
+            <span class="name">Eric Kibuga Gitonga</span>
+            <span class="role">Founder • Creative Director</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="service-grid">
+          <a class="card card-link service-card" href="photography.html">
+            <div
+              class="service-media"
+              style="background-image: url('./images/camera.jpg')"
+            ></div>
+            <div class="service-body">
+              <h3>Photography</h3>
+              <p>Timeless photographs for your special occasions.</p>
+            </div>
           </a>
-        </li>
 
-        <li>
-          <a class="nav-link" href="contact.html">
-            <i class="fa-solid fa-envelope"></i> Contact Us
+          <a class="card card-link service-card" href="design.html">
+            <div
+              class="service-media"
+              style="background-image: url('./images/design.jpg')"
+            ></div>
+            <div class="service-body">
+              <h3>Graphic Design</h3>
+              <p>Branding, posters and digital design that elevates your business.</p>
+            </div>
           </a>
-        </li>
 
-        <li>
-          <a href="book.html" class="btn-primary">
+          <a class="card card-link service-card" href="social.html">
+            <div
+              class="service-media"
+              style="background-image: url('./images/social.jpg')"
+            ></div>
+            <div class="service-body">
+              <h3>Social Media Management</h3>
+              <p>Content planning, design and growth strategies for your platforms.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured work -->
+    <!-- Placeholders until images arrive -->
+    <section class="portfolio container reveal">
+      <h2 class="section-title">Featured Work</h2>
+
+      <div class="featured-one">
+        <button class="featured-nav prev" aria-label="Previous photo">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="featured-viewport" id="featuredViewport">
+          <!-- TEMPLATE: duplicate & change src -->
+          <figure class="featured-slide">
+            <img
+              src="./images/photograph1.jpg"
+              alt="Featured photo 1"
+              loading="lazy"
+            />
+          </figure>
+
+          <figure class="featured-slide">
+            <img
+              src="./images/photograph5.jpg"
+              alt="Featured photo 2"
+              loading="lazy"
+            />
+          </figure>
+
+          <figure class="featured-slide">
+            <img
+              src="./images/photograph3.jpg"
+              alt="Featured photo 3"
+              loading="lazy"
+            />
+          </figure>
+
+          <figure class="featured-slide">
+            <img
+              src="./images/photograph4.jpg"
+              alt="Featured photo 4"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <button class="featured-nav next" aria-label="Next photo">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="featured-meta">
+        <div
+          class="featured-dots"
+          id="featuredDots"
+          aria-label="Featured gallery pagination"
+        ></div>
+
+        <div class="center">
+          <a href="portfolio.html" class="btn-primary">View Full Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fullscreen Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lbClose" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <button class="lightbox-nav prev" id="lbPrev" aria-label="Previous">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <figure class="lightbox-figure">
+        <img id="lbImg" alt="" />
+      </figure>
+
+      <button class="lightbox-nav next" id="lbNext" aria-label="Next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Ready to Capture Your Moment?</h2>
+      <a href="book.html" class="btn-primary">Book Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <!-- Brand / About -->
+        <div class="footer-col">
+          <p class="footer-brand">KG Creative</p>
+          <p class="footer-muted">
+            Premium photography & design studio based in Nairobi. Clean visuals.
+            Authentic moments.
+          </p>
+
+          <div class="footer-social">
+            <!-- Replace these with your real links -->
+            <a
+              class="social-link"
+              href="https://instagram.com/YOURHANDLE"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              class="social-link"
+              href="https://tiktok.com/@YOURHANDLE"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a
+              class="social-link"
+              href="https://facebook.com/YOURPAGE"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-link" href="mailto:your@email.com" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <p class="footer-title">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="book.html">Book a Session</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <p class="footer-title">Services</p>
+          <ul class="footer-links">
+            <li><a href="photography.html">Photography</a></li>
+            <li><a href="design.html">Graphic Design</a></li>
+            <li><a href="social.html">Social Media</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <p class="footer-title">Contact</p>
+          <ul class="footer-contact">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Nairobi, Kenya</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+254722789124">+254 722 789 124</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:your@email.com">your@email.com</a>
+            </li>
+            <li>
+              <i class="fa-brands fa-whatsapp"></i>
+              <a
+                href="https://wa.me/254722789124"
+                target="_blank"
+                rel="noopener"
+                >WhatsApp</a
+              >
+            </li>
+          </ul>
+
+          <a class="footer-cta" href="book.html">
             <i class="fa-solid fa-calendar-check"></i> Book Now
           </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Capturing The World, One Frame At a Time.</h1>
-      <p>Professional photography and creative design services based in Nairobi, Kenya.</p>
-
-      <div class="hero-buttons">
-        <a href="portfolio.html" class="btn-primary">View Portfolio</a>
-        <a href="book.html" class="btn-secondary">Book a Session</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About preview -->
-<section class="about-preview container">
-  <div class="about-text">
-    <h2>About KG Creative</h2>
-    <p>
-      KG Creative is a Nairobi-based studio offering professional photography, graphic design solutions
-      and social media support for individuals, schools and brands. We focus on clean visuals,
-      authentic moments and work that looks premium 
-    </p>
-
-    <div class="about-highlights">
-      <div class="pill"><i class="fa-solid fa-bolt"></i> Fast turnaround</div>
-      <div class="pill"><i class="fa-solid fa-star"></i> Clean & premium edits</div>
-      <div class="pill"><i class="fa-solid fa-location-dot"></i> Nairobi-based</div>
-    </div>
-
-    <div class="about-actions">
-      <a href="about.html" class="btn-primary">Learn More</a>
-      <a href="contact.html" class="btn-secondary">Contact</a>
-    </div>
-  </div>
-
-  <div class="about-image">
-    <figure class="portrait-card">
-      <img src="images/eric1.jpg" alt="Founder portrait - KG Creative">
-      <figcaption>
-        <span class="name">Eric Kibuga Gitonga</span>
-        <span class="role">Founder • Creative Director</span>
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-  <!-- Services -->
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-
-     <div class="service-grid">
-  <a class="card card-link service-card" href="photography.html">
-    <div class="service-media" style="background-image:url('./images/camera.jpg');"></div>
-    <div class="service-body">
-      <h3>Photography</h3>
-      <p>Timeless photographs for your special occasions.</p>
-    </div>
-  </a>
-
-  <a class="card card-link service-card" href="design.html">
-    <div class="service-media" style="background-image:url('./images/design.jpg');"></div>
-    <div class="service-body">
-      <h3>Graphic Design</h3>
-      <p>Branding, posters and digital design that elevates your business.</p>
-    </div>
-  </a>
-
-  <a class="card card-link service-card" href="social.html">
-    <div class="service-media" style="background-image:url('./images/social.jpg');"></div>
-    <div class="service-body">
-      <h3>Social Media Management</h3>
-      <p>Content planning, design and growth strategies for your platforms.</p>
-    </div>
-  </a>
-</div>
-
-    </div>
-  </section>
-
-  <!-- Featured work -->
-  <section class="portfolio container">
-    <h2 class="section-title">Featured Work</h2>
-
-    <!-- Placeholders until images arrive -->
-    <section class="portfolio container">
-  <h2 class="section-title">Featured Work</h2>
-
-  <div class="featured-wrap">
-    <button class="featured-btn prev" aria-label="Scroll left">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-
-    <div class="featured-track" id="featuredTrack">
-      <!-- TEMPLATE ITEMS: duplicate these and change src -->
-      <figure class="featured-item">
-        <img src="./images/photograph1.jpg" alt="Featured work 1">
-      </figure>
-      <figure class="featured-item">
-        <img src="./images/photograph5.jpg" alt="Featured work 2">
-      </figure>
-      <figure class="featured-item">
-        <img src="./images/photograph3.jpg" alt="Featured work 3">
-      </figure>
-      <figure class="featured-item">
-        <img src="./images/photograph4.jpg" alt="Featured work 4">
-      </figure>
-    </div>
-
-    <button class="featured-btn next" aria-label="Scroll right">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-  </div>
-
-  <div class="center">
-    <a href="portfolio.html" class="btn-primary">View Full Portfolio</a>
-  </div>
-</section>
-    <div class="center">
-      <a href="portfolio.html" class="btn-primary">View Full Portfolio</a>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <h2>Ready to Capture Your Moment?</h2>
-    <a href="book.html" class="btn-primary">Book Now</a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <p class="footer-brand">KG Creative</p>
-        <p class="footer-muted">Photography & Graphic Design • Nairobi, Kenya</p>
+        </div>
       </div>
 
-      <div class="footer-links">
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact Us</a>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>© 2026 KG Creative • Nairobi, Kenya</p>
+          <a class="to-top" href="#top" aria-label="Back to top">
+            Back to top <i class="fa-solid fa-arrow-up"></i>
+          </a>
+        </div>
       </div>
+    </footer>
 
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Twitter/X">Twitter/X</a>
-        <a href="#" aria-label="TikTok">TikTok</a>
-      </div>
+    <!-- Floating Whatsapp, Instagram, TikTok and Facebook link -->
+    <div class="social-float" aria-label="Social links">
+      <a
+        class="social-btn whatsapp"
+        href="https://wa.me/254722789124"
+        target="_blank"
+        rel="noopener"
+        aria-label="Chat on WhatsApp"
+      >
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a
+        class="social-btn instagram"
+        href="https://instagram.com/YOURHANDLE"
+        target="_blank"
+        rel="noopener"
+        aria-label="Visit Instagram"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a
+        class="social-btn tiktok"
+        href="https://tiktok.com/@YOURHANDLE"
+        target="_blank"
+        rel="noopener"
+        aria-label="Visit TikTok"
+      >
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+
+      <a
+        class="social-btn facebook"
+        href="https://facebook.com/YOURPAGE"
+        target="_blank"
+        rel="noopener"
+        aria-label="Visit Facebook"
+      >
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a
+        class="social-btn gmail"
+        href="mailto:your@email.com"
+        target="_blank"
+        rel="noopener"
+        aria-label="Send Email"
+      >
+        <i class="fa-solid fa-envelope"></i>
+      </a>
     </div>
 
-    <p class="footer-bottom">© 2026 KG Creative | Nairobi, Kenya</p>
-  </footer>
+    <script>
+      // Mobile nav toggle
+      const navToggle = document.querySelector(".nav-toggle");
+      const siteNav = document.querySelector("#site-nav");
 
-  <!-- Floating WhatsApp (replace number later) -->
-  <a class="whatsapp-float" href="https://wa.me/+254722789124" target="_blank" rel="noopener">
-    WhatsApp
-  </a>
-</body>
+      if (navToggle && siteNav) {
+        navToggle.addEventListener("click", () => {
+          const open = siteNav.classList.toggle("open");
+          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      // Scroll reveal animations
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)")
+        .matches;
+
+      if (!prefersReduced) {
+        const revealEls = document.querySelectorAll(".reveal");
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) e.target.classList.add("in");
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => el.classList.add("in"));
+      }
+    </script>
+
+    <script>
+      // Featured slider + Lightbox
+      const viewport = document.getElementById("featuredViewport");
+      const slides = viewport
+        ? Array.from(viewport.querySelectorAll(".featured-slide img"))
+        : [];
+
+      const prevBtn = document.querySelector(".featured-nav.prev");
+      const nextBtn = document.querySelector(".featured-nav.next");
+      const dotsWrap = document.getElementById("featuredDots");
+
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbClose = document.getElementById("lbClose");
+      const lbPrev = document.getElementById("lbPrev");
+      const lbNext = document.getElementById("lbNext");
+
+      let index = 0;
+
+      function goTo(i, smooth = true) {
+        if (!viewport || slides.length === 0) return;
+
+        index = Math.max(0, Math.min(i, slides.length - 1));
+        const left = index * viewport.clientWidth;
+
+        viewport.scrollTo({ left, behavior: smooth ? "smooth" : "auto" });
+        updateDots();
+      }
+
+      function updateDots() {
+        if (!dotsWrap) return;
+
+        dotsWrap.querySelectorAll("button").forEach((b, i) => {
+          b.classList.toggle("active", i === index);
+        });
+      }
+
+      // Build dots
+      if (dotsWrap && slides.length) {
+        dotsWrap.innerHTML = "";
+
+        slides.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("aria-label", `Go to photo ${i + 1}`);
+          b.addEventListener("click", () => goTo(i));
+          dotsWrap.appendChild(b);
+        });
+
+        updateDots();
+      }
+
+      // Arrow nav
+      if (prevBtn) prevBtn.addEventListener("click", () => goTo(index - 1));
+      if (nextBtn) nextBtn.addEventListener("click", () => goTo(index + 1));
+
+      // Keep index in sync while swiping/scrolling
+      if (viewport) {
+        viewport.addEventListener("scroll", () => {
+          const w = viewport.clientWidth || 1;
+          const i = Math.round(viewport.scrollLeft / w);
+
+          if (i !== index) {
+            index = i;
+            updateDots();
+          }
+        });
+      }
+
+      // Lightbox open/close
+      function openLightbox(i) {
+        if (!lightbox || !lbImg) return;
+
+        index = i;
+        lbImg.src = slides[index].getAttribute("src");
+        lbImg.alt = slides[index].getAttribute("alt") || `Photo ${index + 1}`;
+
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function lbGo(dir) {
+        if (!slides.length) return;
+
+        index = (index + dir + slides.length) % slides.length;
+        lbImg.src = slides[index].getAttribute("src");
+        lbImg.alt = slides[index].getAttribute("alt") || `Photo ${index + 1}`;
+
+        // keep slider aligned too
+        goTo(index);
+      }
+
+      slides.forEach((img, i) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => openLightbox(i));
+      });
+
+      if (lbClose) lbClose.addEventListener("click", closeLightbox);
+      if (lbPrev) lbPrev.addEventListener("click", () => lbGo(-1));
+      if (lbNext) lbNext.addEventListener("click", () => lbGo(1));
+
+      // Close on backdrop click
+      if (lightbox) {
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+
+      // Keyboard support
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox || !lightbox.classList.contains("open")) return;
+
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") lbGo(-1);
+        if (e.key === "ArrowRight") lbGo(1);
+      });
+
+      // Swipe support in lightbox
+      let startX = 0;
+
+      if (lightbox) {
+        lightbox.addEventListener(
+          "touchstart",
+          (e) => {
+            startX = e.changedTouches[0].clientX;
+          },
+          { passive: true }
+        );
+
+        lightbox.addEventListener(
+          "touchend",
+          (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = endX - startX;
+
+            if (Math.abs(diff) > 40) {
+              lbGo(diff > 0 ? -1 : 1);
+            }
+          },
+          { passive: true }
+        );
+      }
+
+      // Initialize
+      goTo(0, false);
+    </script>
+  </body>
 </html>
