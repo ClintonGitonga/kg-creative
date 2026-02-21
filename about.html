@@ -1,97 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About | KG Creative</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-      <!-- Font Awesome Icons -->
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-integrity="sha512-..." 
-crossorigin="anonymous" 
-referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <title>About | KG Creative</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
-<body>
-    <!-- Navbar -->
-<header class="navbar">
-  <div class="container">
-    <div class="logo">KG Creative</div>
 
-    <nav>
-      <ul>
-        <li>
-          <a class="nav-link active" href="index.html">
-            <i class="fa-solid fa-house"></i> Home
-          </a>
-        </li>
-
-        <li>
-          <a class="nav-link" href="about.html">
-            <i class="fa-solid fa-user"></i> About
-          </a>
-        </li>
-
-        <li class="dropdown">
-          <a class="nav-link" href="services.html">
-            <i class="fa-solid fa-briefcase"></i> Services ▾
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="photography.html">
-                <i class="fa-solid fa-camera"></i> Photography
-              </a>
-            </li>
-            <li>
-              <a href="design.html">
-                <i class="fa-solid fa-pen-nib"></i> Graphic Design
-              </a>
-            </li>
-            <li>
-              <a href="social.html">
-                <i class="fa-solid fa-hashtag"></i> Social Media Management
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a class="nav-link" href="portfolio.html">
-            <i class="fa-solid fa-images"></i> Portfolio
-          </a>
-        </li>
-
-        <li>
-          <a class="nav-link" href="contact.html">
-            <i class="fa-solid fa-envelope"></i> Contact Us
-          </a>
-        </li>
-
-        <li>
-          <a href="book.html" class="btn-primary">
-            <i class="fa-solid fa-calendar-check"></i> Book Now
-          </a>
-        </li>
-      </ul>
-    </nav>
+<body id="top">
+  <!-- Page Loader -->
+  <div id="pageLoader" class="page-loader" aria-label="Loading" role="status">
+    <div class="loader-inner">
+      <img src="images/logo.jpg" alt="KG Creative" class="loader-logo" />
+      <div class="loader-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </div>
-</header>
 
-    <section class="about-page container">
-        <h1>About KG Creative</h1>
-        <p>
-            KG Creative is a professional photography and graphic design studio based in Nairobi, Kenya.
-            We provide high-quality photography for weddings, corporate events, portraits, and social media branding.
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="KG Creative Home">
+        <img src="images/logo.jpg" alt="KG Creative Logo" />
+        <span>KG Creative</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a class="nav-link active" href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+
+          <li class="dropdown">
+            <a class="nav-link" href="services.html"><i class="fa-solid fa-briefcase"></i> Services ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="photography.html"><i class="fa-solid fa-camera"></i> Photography</a></li>
+              <li><a href="design.html"><i class="fa-solid fa-pen-nib"></i> Graphic Design</a></li>
+              <li><a href="social.html"><i class="fa-solid fa-hashtag"></i> Social Media Management</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link" href="portfolio.html"><i class="fa-solid fa-images"></i> Portfolio</a></li>
+          <li><a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a></li>
+          <li><a href="book.html" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero reveal">
+    <div class="container">
+      <h1>About KG Creative</h1>
+      <p class="page-subtitle">
+        A Nairobi-based studio focused on clean visuals, authentic moments, and premium finishing.
+      </p>
+    </div>
+  </section>
+
+  <!-- ✅ FIX: only ONE about-page section (no duplicates, no broken nesting) -->
+  <section class="container reveal about-page" style="padding-top: 56px;">
+    <!-- Top layout: Portrait + Founder story side-by-side -->
+    <div class="about-top reveal">
+      <!-- LEFT: Portrait + buttons under -->
+      <aside class="about-left">
+        <figure class="portrait-card portrait-lg">
+          <img src="images/eric1.jpg" alt="Kibuga Gitonga — Founder of KG Creative" />
+          <figcaption>
+            <span class="name">Kibuga Gitonga</span>
+            <span class="role">Founder • Creative Director</span>
+          </figcaption>
+        </figure>
+
+        <div class="profile-actions">
+          <a href="portfolio.html" class="btn-primary">
+            <i class="fa-solid fa-images"></i> View Work
+          </a>
+          <a href="contact.html" class="btn-secondary">
+            <i class="fa-solid fa-envelope"></i> Contact
+          </a>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Founder story -->
+      <div class="about-right">
+        <h2 class="about-title">Founder Story</h2>
+        <p class="about-lead">
+          The thinking behind the work — and the standard we deliver every time.
         </p>
-        <p>
-            Our mission is to create stunning visuals that capture memories and help brands stand out.
-            Creativity, professionalism, and client satisfaction are our top priorities.
-        </p>
-        <img src="./images/eric.jpg" alt="Photograph or Eric Kibuga Gitonga">
+
+        <div class="about-card about-story">
+          <p>
+            Kibuga Gitonga is the founder and creative director of KG Creative, a boutique studio in Nairobi specializing
+            in photography, graphic design, and social media strategy.
+          </p>
+          <p>
+            With over a decade of hands-on experience, he blends creative intuition with disciplined strategic thinking.
+            His work is defined by precision, clarity, and a deep understanding of how powerful visuals shape perception
+            and drive growth.
+          </p>
+          <p>
+            KG Creative partners with a select roster of clients, from entrepreneurs to educational institutions, offering
+            personalized attention and premium content tailored to each brand’s unique identity. Kibuga’s approach remains
+            consistent across every project: intentional creativity, refined execution, and results that stand the test of time.
+          </p>
+        </div>
+
+        <div class="about-mini">
+          <div class="pill"><i class="fa-solid fa-bolt"></i> Fast turnaround</div>
+          <div class="pill"><i class="fa-solid fa-star"></i> Clean & premium edits</div>
+          <div class="pill"><i class="fa-solid fa-location-dot"></i> Nairobi-based</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <section class="about-block reveal">
+      <div class="mv-grid">
+        <div class="mv-icon" aria-hidden="true">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+
+        <div class="mv-content">
+          <h2>Mission & Vision</h2>
+
+          <div class="mv-cards">
+            <div class="mv-card">
+              <h3>Mission</h3>
+              <p class="muted">
+                To create premium visuals that help people and brands show up with confidence — through clean photography,
+                refined design, and content that’s built for real-world results.
+              </p>
+            </div>
+
+            <div class="mv-card">
+              <h3>Vision</h3>
+              <p class="muted">
+                To be Nairobi’s most trusted boutique creative studio — known for precision, consistency, and visuals that
+                elevate brands, preserve moments, and stand the test of time.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-actions" style="justify-content:flex-start;">
+            <a href="portfolio.html" class="btn-primary"><i class="fa-solid fa-images"></i> View Work</a>
+          </div>
+        </div>
+      </div>
     </section>
+  </section>
 
-    <footer>
-        <p>© 2026 KG Creative | Nairobi, Kenya</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="site-footer reveal">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <p class="footer-brand">KG Creative</p>
+        <p class="footer-muted">
+          Premium photography & design studio based in Nairobi. Clean visuals, authentic moments,
+          and brand-ready delivery.
+        </p>
+
+        <div class="footer-badges" aria-label="Studio highlights">
+          <span class="footer-badge">Fast turnaround</span>
+          <span class="footer-badge">Premium edits</span>
+          <span class="footer-badge">Nairobi-based</span>
+          <span class="footer-badge">Photo + Design</span>
+        </div>
+
+        <div class="footer-social" style="margin-top:16px;">
+          <a class="social-link" href="https://www.instagram.com/itskgcreative?igsh=dWNmcDJubTlpMTM2" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="social-link" href="https://www.tiktok.com/@itskgcreative?_r=1&_t=ZS-944RplkvNLN" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a class="social-link" href="https://www.facebook.com/share/1CFgZYMUWt/" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a class="social-link" href="mailto:itskgcreative@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-title">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="book.html">Book a Session</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="photography.html">Photography</a></li>
+          <li><a href="design.html">Graphic Design</a></li>
+          <li><a href="social.html">Social Media Management</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-title">Contact</p>
+        <ul class="footer-contact">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Nairobi, Kenya</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+254713482813">+254 713 482 813</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:itskgcreative@gmail.com">itskgcreative@gmail.com</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/254713482813" target="_blank" rel="noopener">WhatsApp</a>
+          </li>
+        </ul>
+
+        <a class="footer-cta" href="book.html">
+          <i class="fa-solid fa-calendar-check"></i> Book Now
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 KG Creative • Nairobi, Kenya</p>
+        <a class="to-top" href="#top" aria-label="Back to top">
+          Back to top <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="social-float" aria-label="Social links">
+    <!-- paste your same floating socials from index.html -->
+  </div>
+
+  <script src="js/main.js" defer></script>
+
+  <!-- ✅ Failsafe: if main.js loader hide fails, this guarantees the page shows -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("pageLoader");
+      if (loader) loader.classList.add("hidden");
+    });
+  </script>
 </body>
 </html>

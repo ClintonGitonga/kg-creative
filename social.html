@@ -1,111 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Social Media Management</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Social Media Management | KG Creative</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-      <!-- Font Awesome Icons -->
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-integrity="sha512-..." 
-crossorigin="anonymous" 
-referrerpolicy="no-referrer" />
+  <!-- Fonts (match homepage) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
-<body>
-    <!-- Navbar -->
-<header class="navbar">
-  <div class="container">
-    <div class="logo">KG Creative</div>
 
-    <nav>
-      <ul>
-        <li>
-          <a class="nav-link active" href="index.html">
-            <i class="fa-solid fa-house"></i> Home
-          </a>
-        </li>
+<body id="top">
+<!-- Page Loader -->
+<div id="pageLoader" class="page-loader" aria-label="Loading" role="status">
+  <div class="loader-inner">
+    <img src="images/logo.jpg" alt="KG Creative" class="loader-logo" />
+    <div class="loader-dots" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="KG Creative Home">
+        <img src="images/logo.jpg" alt="KG Creative Logo" />
+        <span>KG Creative</span>
+      </a>
 
-        <li>
-          <a class="nav-link" href="about.html">
-            <i class="fa-solid fa-user"></i> About
-          </a>
-        </li>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-        <li class="dropdown">
-          <a class="nav-link" href="services.html">
-            <i class="fa-solid fa-briefcase"></i> Services ▾
-          </a>
-          <ul class="dropdown-menu">
+      <nav id="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a class="nav-link" href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+
+          <li class="dropdown">
+            <a class="nav-link" href="services.html"><i class="fa-solid fa-briefcase"></i> Services ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="photography.html"><i class="fa-solid fa-camera"></i> Photography</a></li>
+              <li><a href="design.html"><i class="fa-solid fa-pen-nib"></i> Graphic Design</a></li>
+              <li><a href="social.html"><i class="fa-solid fa-hashtag"></i> Social Media Management</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link" href="portfolio.html"><i class="fa-solid fa-images"></i> Portfolio</a></li>
+          <li><a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a></li>
+          <li><a href="book.html" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero reveal">
+    <div class="container">
+      <h1>Social Media Management</h1>
+      <p class="page-subtitle">
+        Content planning, design and growth strategies to help your brand stand out consistently.
+      </p>
+    </div>
+  </section>
+
+  <section class="gallery-section container reveal">
+    <div class="gallery-grid">
+      <img src="images/family1.jpg" alt="Social media content 1" loading="lazy" />
+      <img src="images/family2.jpg" alt="Social media content 2" loading="lazy" />
+      <img src="images/family3.jpg" alt="Social media content 3" loading="lazy" />
+      <img src="images/family4.jpg" alt="Social media content 4" loading="lazy" />
+      <img src="images/family5.jpg" alt="Social media content 5" loading="lazy" />
+      <img src="images/family6.jpg" alt="Social media content 6" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="service-cta container reveal">
+    <a href="book.html" class="btn-primary">Book This Service</a>
+  </section>
+
+  <!-- Footer (upgraded) -->
+    <footer class="site-footer reveal">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <p class="footer-brand">KG Creative</p>
+          <p class="footer-muted">
+            Premium photography & design studio based in Nairobi. Clean visuals, authentic moments,
+            and brand-ready delivery.
+          </p>
+
+          <div class="footer-badges" aria-label="Studio highlights">
+            <span class="footer-badge">Fast turnaround</span>
+            <span class="footer-badge">Premium edits</span>
+            <span class="footer-badge">Nairobi-based</span>
+            <span class="footer-badge">Photo + Design</span>
+          </div>
+
+          <div class="footer-social" style="margin-top:16px;">
+            <a class="social-link" href="https://www.instagram.com/itskgcreative?igsh=dWNmcDJubTlpMTM2" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="social-link" href="https://www.tiktok.com/@itskgcreative?_r=1&_t=ZS-944RplkvNLN" target="_blank" rel="noopener" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/share/1CFgZYMUWt/" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-link" href="mailto:itskgcreative@gmail.com" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-title">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="book.html">Book a Session</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-title">Services</p>
+          <ul class="footer-links">
+            <li><a href="photography.html">Photography</a></li>
+            <li><a href="design.html">Graphic Design</a></li>
+            <li><a href="social.html">Social Media Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-title">Contact</p>
+          <ul class="footer-contact">
             <li>
-              <a href="photography.html">
-                <i class="fa-solid fa-camera"></i> Photography
-              </a>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Nairobi, Kenya</span>
             </li>
             <li>
-              <a href="design.html">
-                <i class="fa-solid fa-pen-nib"></i> Graphic Design
-              </a>
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+254713482813">+254 713 482 813</a>
             </li>
             <li>
-              <a href="social.html">
-                <i class="fa-solid fa-hashtag"></i> Social Media Management
-              </a>
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:itskgcreative@gmail.com">itskgcreative@gmail.com</a>
+            </li>
+            <li>
+              <i class="fa-brands fa-whatsapp"></i>
+              <a href="https://wa.me/254713482813" target="_blank" rel="noopener">WhatsApp</a>
             </li>
           </ul>
-        </li>
 
-        <li>
-          <a class="nav-link" href="portfolio.html">
-            <i class="fa-solid fa-images"></i> Portfolio
-          </a>
-        </li>
-
-        <li>
-          <a class="nav-link" href="contact.html">
-            <i class="fa-solid fa-envelope"></i> Contact Us
-          </a>
-        </li>
-
-        <li>
-          <a href="book.html" class="btn-primary">
+          <a class="footer-cta" href="book.html">
             <i class="fa-solid fa-calendar-check"></i> Book Now
           </a>
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>© 2026 KG Creative • Nairobi, Kenya</p>
+          <a class="to-top" href="#top" aria-label="Back to top">
+            Back to top <i class="fa-solid fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  <div class="social-float" aria-label="Social links">
+    <!-- paste your same floating socials from index.html -->
   </div>
-</header>
-    <section class="page-hero">
-    <div class="container">
-        <h1>Social Media Management</h1>
-        <p class="page-subtitle">
-              Documenting impactful corporate moments and dynamic events with authenticity, precision and purpose.
-        </p>
-    </div>
-</section>
 
-<section class="gallery-section container">
-    <div class="gallery-grid">
-        <img src="images/family1.jpg" alt="">
-        <img src="images/family2.jpg" alt="">
-        <img src="images/family3.jpg" alt="">
-        <img src="images/family4.jpg" alt="">
-        <img src="images/family5.jpg" alt="">
-        <img src="images/family6.jpg" alt="">
-    </div>
-</section>
-
-<section class="service-cta container">
-    <a href="book.html" class="btn-primary">Book This Service</a>
-</section>
-
-<footer>
-    <p>© 2026 KG Creative | Nairobi, Kenya</p>
-</footer>
+  <script src="js/main.js" defer></script>
 </body>
+</html>
